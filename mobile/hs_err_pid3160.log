@@ -1,0 +1,47 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 151776 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:323), pid=3160, tid=8128
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_76-b13) (build 1.7.0_76-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.76-b04 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002141800):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=8128, stack(0x000000000ab20000,0x000000000ac20000)]
+
+Stack: [0x000000000ab20000,0x000000000ac20000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+
+Current CompileTask:
+C2:   1715   71             com.android.dx.rop.code.RopMethod::calcPredecessors (227 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000a596000 JavaThread "pool-1-thread-4" [_thread_in_Java, id=9428, stack(0x000000000b220000,0x000000000b320000)]
+  0x000000000a593000 JavaThread "pool-1-thread-3" [_thread_in_Java, id=5076, stack(0x000000000b120000,0x000000000b220000)]
+  0x000000000a592800 JavaThread "pool-1-thread-2" [_thread_in_Java, id=8496, stack(0x000000000b020000,0x000000000b120000)]
+  0x000000000a591800 JavaThread "pool-2-thread-1" [_thread_blocked, id=5812, stack(0x000000000af20000,0x000000000b020000)]
+  0x000000000a504800 

@@ -1,0 +1,41 @@
+<resources>
+
+
+    <string name="send_notification_button">Send notification</string>
+    <string name="app_name_my_activity">MyWatchApp</string>
+
+
+    <string name="app_name">Watch Face</string>
+    <string name="enter_color">Enter RGB values</string>
+    <string name="blue_value">Blue value</string>
+    <string name="red_value">Red value</string>
+    <string name="greeb_value">Green value</string>
+    <string name="watch_face01_config_text">Watch face configuration</string>
+    <string name="watch_face01_config_background">Background color</string>
+
+    <string name="title_no_device_connected">No wearable device is currently connected.</string>
+    <string name="ok_no_device_connected">OK</string>
+
+
+    <string name="color_black">Black</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_gray">Gray</string>
+    <string name="color_green">Green</string>
+    <string name="color_navy">Navy</string>
+    <string name="color_red">Red</string>
+    <string name="color_white">White</string>
+    <string name="color_default">Default</string>
+
+    <string-array name="color_array">
+        <item>@string/color_default</item>
+        <item>@string/color_black</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_gray</item>
+        <item>@string/color_green</item>
+        <item>@string/color_navy</item>
+        <item>@string/color_red</item>
+        <item>@string/color_white</item>
+    </string-array>
+
+
+</resources>

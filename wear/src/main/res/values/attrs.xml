@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SuggestionView">
+        <attr name="suggestionType" format="enum">
+            <enum name="walk" value="0"/>
+            <enum name="exercise" value="1"/>
+        </attr>
+
+    </declare-styleable>
+
+
+
+</resources>

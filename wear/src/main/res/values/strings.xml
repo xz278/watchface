@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">watchface01</string>
+    <string name="my_digital_name">Watch Face</string>
+
+    <!-- TODO: this should be shared (needs covering all the samples with Gradle build model) -->
+    <string name="color_black">Black</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_gray">Gray</string>
+    <string name="color_green">Green</string>
+    <string name="color_navy">Navy</string>
+    <string name="color_red">Red</string>
+    <string name="color_white">White</string>
+    <string name="watch_face01_config_name">Watch face 01 configuration</string>
+    <string name="digital_background_color">Background color</string>
+    <string name="color_default">Default</string>
+
+    <string name="suggestion">My suggestion</string>
+
+
+    <string-array name="color_array">
+        <item>@string/color_default</item>
+        <item>@string/color_black</item>
+        <item>@string/color_blue</item>
+        <item>@string/color_gray</item>
+        <item>@string/color_green</item>
+        <item>@string/color_navy</item>
+        <item>@string/color_red</item>
+        <item>@string/color_white</item>
+    </string-array>
+
+</resources>
