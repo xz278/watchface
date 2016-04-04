@@ -2,7 +2,12 @@ package xz.watchface01;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
@@ -11,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -39,6 +45,22 @@ public class MyActivity extends Activity
     public static final String TAG = "SendDataActivity";
     private static final String PATH_SUGGESTION_DATA = "/wear_data";
     private static final String KEY_SUGGESTION_DATA = "suggestion_data";
+    private MyBoundService myBoundService;
+    private boolean isBound=false;
+
+    private ServiceConnection myConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            MyBoundService.MyLocalBinder binder = (MyBoundService.MyLocalBinder)service;
+            myBoundService=binder.getService();
+            isBound=true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound=false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -93,6 +115,36 @@ public class MyActivity extends Activity
                 //Log.d("data", "onClicked called; data: " + dataToSend);
             }
         });
+
+        // start learning service
+        Button mStartService = (Button)findViewById(R.id.button_start_service);
+
+        final Intent startServiceIntent=new Intent(this,MyBoundService.class);
+
+        mStartService.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                bindService(startServiceIntent, myConnection, Context.BIND_AUTO_CREATE);
+            }
+        });
+
+        Button mEndService = (Button)findViewById(R.id.button_end_service);
+        mEndService.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                unbindService(myConnection);
+            }
+        });
+
+        Button mShowData = (Button) findViewById(R.id.button_show_data);
+        final TextView mShowDataText=(TextView)findViewById(R.id.text_data);
+        mShowData.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mShowDataText.setText(myBoundService.getCurrentTime());
+            }
+        });
+
     } // onCreate()
 
     /*
